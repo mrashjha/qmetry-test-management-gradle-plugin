@@ -19,6 +19,10 @@ public class QTMGradleExtension {
     private String cycle;
     private String testcaseFields;
     private String testsuiteFields;
+    private String tsFolderPath;
+    private String tcFolderPath;
+    private String skipWarning;
+    private  String isMatchingRequired;
     
     public String getQtmUrl() {
         return qtmUrl;
@@ -131,8 +135,25 @@ public class QTMGradleExtension {
     public void setTestsuiteFields(String testsuiteFields) {
         this.testsuiteFields = testsuiteFields;
     }
+    
+    public String getTsFolderPath() {
+		return tsFolderPath;
+	}
+
+	public void setTsFolderPath(String tsFolderPath) {
+		this.tsFolderPath = tsFolderPath;
+	}
+
+	public String getTcFolderPath() {
+		return tcFolderPath;
+	}
+
+	public void setTcFolderPath(String tcFolderPath) {
+		this.tcFolderPath = tcFolderPath;
+	}
 
     public String getParsedQtmUrl() throws QTMException {
+    	
 	if (this.qtmUrl == null)
 	    throw new QTMException("Please provide your QMetry Test Management URL in qtmConfig block as 'qtmUrl'");
 	if (!this.qtmUrl.startsWith("http:/") && !this.qtmUrl.startsWith("https:/"))
@@ -247,4 +268,44 @@ public class QTMGradleExtension {
 	    throw new QTMException("Please provide correct Json data of Test suite fields !");
 	}
     }
+    
+    public String getParsedTsFolderPath() {
+    	if (this.tsFolderPath == null)
+    	    return "";
+    	return this.tsFolderPath;
+    }
+    
+    public String getParsedTcFolderPath() {
+    	if (this.tcFolderPath == null)
+    	    return "";
+    	return this.tcFolderPath;
+    }
+    
+    public String getParsedSkipWarning() {
+    	if (this.skipWarning == null)
+    	    return "";
+    	return this.skipWarning;
+    }
+    
+    public String getParsedIsMatchingRequired() {
+    	if (this.isMatchingRequired == null)
+    	    return "";
+    	return this.isMatchingRequired;
+    }
+
+	public String getSkipWarning() {
+		return skipWarning;
+	}
+
+	public void setSkipWarning(String skipWarning) {
+		this.skipWarning = skipWarning;
+	}
+
+	public String getIsMatchingRequired() {
+		return isMatchingRequired;
+	}
+
+	public void setIsMatchingRequired(String isMatchingRequired) {
+		this.isMatchingRequired = isMatchingRequired;
+	}
 }
