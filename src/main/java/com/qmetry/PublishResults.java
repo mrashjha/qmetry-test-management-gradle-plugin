@@ -57,6 +57,18 @@ public class PublishResults extends DefaultTask {
 	    if (!config.getParsedTestsuiteFields().isEmpty()) {
 		System.out.println(pluginName + " : Using Test Suite Fields '" + config.getParsedTestsuiteFields() + "'");
 	    }
+	    if (!config.getParsedTsFolderPath().isEmpty()) {
+			System.out.println(pluginName + " : Using Test Suite Folder '" + config.getParsedTsFolderPath() + "'");
+		}
+	    if (!config.getParsedTcFolderPath().isEmpty()) {
+			System.out.println(pluginName + " : Using Test case Folder '" + config.getParsedTcFolderPath() + "'");
+		}
+	    if (!config.getParsedIsMatchingRequired().isEmpty()) {
+			System.out.println(pluginName + " : Using IsMatchingRequired '" + config.getParsedIsMatchingRequired() + "'");
+		}
+	    if (!config.getParsedSkipWarning().isEmpty()) {
+			System.out.println(pluginName + " : Using SkipWarning '" + config.getParsedSkipWarning() + "'");
+		}
 
 	    String compfilepath = getProject().getBuildDir().toString() + File.separator.toString() + config.getParsedTestResultFilePath();
 	    File resultFile = new File(compfilepath);
@@ -85,7 +97,11 @@ public class PublishResults extends DefaultTask {
 				    config.getParsedRelease(),
 				    config.getParsedCycle(),
 				    config.getParsedTestcaseFields(),
-				    config.getParsedTestsuiteFields());
+				    config.getParsedTestsuiteFields(),
+				    config.getParsedTsFolderPath(),
+				    config.getParsedTcFolderPath(),
+				    config.getParsedSkipWarning(),
+				    config.getParsedIsMatchingRequired());
 			    System.out.println(pluginName + " : Result file successfully uploaded!");
 			} else {
 			    throw new QTMException("Upload .Zip file or configure Directory to upload QAS results.");
@@ -131,7 +147,11 @@ public class PublishResults extends DefaultTask {
 				config.getParsedRelease(),
 				config.getParsedCycle(),
 				config.getParsedTestcaseFields(),
-				config.getParsedTestsuiteFields());
+				config.getParsedTestsuiteFields(),
+				config.getParsedTsFolderPath(),
+				config.getParsedTcFolderPath(),
+				config.getParsedSkipWarning(),
+				config.getParsedIsMatchingRequired());
 			System.out.println(pluginName + " : Result file successfully uploaded!");
 		    }		  	
 		} else if (resultFile.isDirectory()) {
@@ -153,7 +173,11 @@ public class PublishResults extends DefaultTask {
 				    config.getParsedRelease(),
 				    config.getParsedCycle(),
 				    config.getParsedTestcaseFields(),
-				    config.getParsedTestsuiteFields());
+				    config.getParsedTestsuiteFields(),
+				    config.getParsedTsFolderPath(),
+				    config.getParsedTcFolderPath(),
+				    config.getParsedSkipWarning(),
+				    config.getParsedIsMatchingRequired());
 			    System.out.println(pluginName + " : Result file successfully uploaded!");
 			}
 		    }
@@ -171,7 +195,11 @@ public class PublishResults extends DefaultTask {
 			    config.getParsedRelease(),
 			    config.getParsedCycle(),
 			    config.getParsedTestcaseFields(),
-			    config.getParsedTestsuiteFields());
+			    config.getParsedTestsuiteFields(),
+			    config.getParsedTsFolderPath(),
+			    config.getParsedTcFolderPath(),
+			    config.getParsedSkipWarning(),
+			    config.getParsedIsMatchingRequired());
 		    System.out.println(pluginName + " : Result file successfully uploaded!");
 		} else {
 		    throw new QTMException("Failed to read result file '" + compfilepath + "'");

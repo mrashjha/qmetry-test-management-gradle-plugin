@@ -38,7 +38,7 @@ public class QTMResultsPublisher extends DefaultTask {
 		    System.out.println(pluginName + " : Reading result file '" + zipFilePath + "'");
 		    System.out.println(pluginName + " : Uploading result file...");
 		    conn.uploadFileToTestSuite(zipFilePath, config.getParsedTestSuiteId(), config.getTestSuiteName(), config.getParsedAutomationFramework(), config.getParsedAutomationHierarchy(), config.getParsedBuild(), config.getParsedPlatform(),
-			    config.getParsedProject(), config.getParsedRelease(), config.getParsedCycle(), config.getTestcaseFields(), config.getParsedTestsuiteFields());
+			    config.getParsedProject(), config.getParsedRelease(), config.getParsedCycle(), config.getTestcaseFields(), config.getParsedTestsuiteFields(), config.getParsedTsFolderPath(), config.getParsedTcFolderPath(), config.getParsedSkipWarning(), config.getParsedIsMatchingRequired());
 		    System.out.println(pluginName + " : Result file successfully uploaded!");
 		} else if (resultFile.isFile()) {
 		    String format = config.getParsedAutomationFramework();
@@ -52,7 +52,7 @@ public class QTMResultsPublisher extends DefaultTask {
 		    System.out.println(pluginName + " : Reading result file '" + compfilepath + "'");
 		    System.out.println(pluginName + " : Uploading result file...");
 		    conn.uploadFileToTestSuite(compfilepath, config.getParsedTestSuiteId(), config.getTestSuiteName(), config.getParsedAutomationFramework(), config.getParsedAutomationHierarchy(), config.getParsedBuild(), config.getParsedPlatform(),
-			    config.getParsedProject(), config.getParsedRelease(), config.getParsedCycle(), config.getTestcaseFields(), config.getParsedTestsuiteFields());
+			    config.getParsedProject(), config.getParsedRelease(), config.getParsedCycle(), config.getTestcaseFields(), config.getParsedTestsuiteFields(), config.getParsedTsFolderPath(), config.getParsedTcFolderPath(), config.getParsedSkipWarning(), config.getParsedIsMatchingRequired());
 		    System.out.println(pluginName + " : Result file successfully uploaded!");
 		} else {
 		    throw new QTMException("Failed to read result file '" + compfilepath + "'");
